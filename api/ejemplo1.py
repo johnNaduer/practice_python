@@ -1,7 +1,7 @@
 import requests
 
 # Hacemos una petición GET a la API de GitHub con el username del usuario
-response = requests.get('https://api.github.com/users/johndoe')
+response = requests.get('https://api.github.com/users/john')
 
 # Comprobamos si la petición fue exitosa
 if response.status_code == 200:
@@ -15,4 +15,5 @@ if response.status_code == 200:
         print(f"Descripción: {user_info['bio']}")
 else:
     print("No se pudo obtener la información del usuario")
+
 
