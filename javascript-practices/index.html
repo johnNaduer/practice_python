@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uso de selectores de ID y clases</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<h1 class="title">Mi sitio web</h1>
+		<ul>
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Acerca de</a></li>
+			<li><a href="#">Contacto</a></li>
+		</ul>
+		<p>Bienvenido a mi sitio web.</p>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			// Cambia el texto del título
+			$('#container .title').text('Mi sitio web - Versión 2.0');
+			// Cambia el color de fondo del elemento <ul>
+			$('#container ul').css('background-color', '#eee');
+		});
+	</script>
+</body>
+</html>
+
