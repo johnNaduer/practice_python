@@ -18,7 +18,7 @@ class filestorage:
     __objects = {}
 
     def new(self, obj):
-        key = "{}.{}".(obj.__class__.name, obj.id)
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj.kwargs
         self.save()
 
