@@ -5,7 +5,6 @@ import uuid
 from sys import argv
 from os.path import isfile
 
-""" probando mi nuevo comentario """
 
 class basemodel:
     def __init__(self, **kwargs):
@@ -16,32 +15,43 @@ class basemodel:
 
 class filestorage:
     file_path = "file3.json"
-    __objetos = {}
+    __objects = {}
 
     def new(self, obj):
         key = obj.id
-        self.__objetos[key] = obj.kwargs
+        self.__objects[key] = obj.kwargs
         self.save()
 
     def save(self):
-        with open(self.file_path,"w", encoding = 'utf-8') as f:
-            dato_convert_json = json.dumps(self.__objetos, indent=4)
+        with open(self.file_path, "w", encoding='utf-8') as f:
+            dato_convert_json = json.dumps(self.__objects, indent=4)
             f.write(dato_convert_json)
 
+    def all(self, cls=None):
+        if cls is None:
+            return self.__objects
+        else:
+            objects_list = {}
+            for key, value in self.__objects.items():
+                if cls.__name__ == value['__class__']:
+                    objects_list[key] = value
+            return objects_list
 
-    def all(self):
-        return self.__objetos
+    def delete(self, obj=None):
+        if obj is not None:
+            key = obj.id
+            if key in self.__objects:
+                del self.__objects[key]
+                self.save()
 
     def reload(self):
         if isfile(self.file_path):
-            with open(self.file_path,"r", encoding = 'utf-8') as f:
-                self.__objetos = json.load(f)
+            with open(self.file_path, "r", encoding='utf-8') as f:
+                self.__objects = json.load(f)
         else:
             return
 
+
 estorage = filestorage()
 estorage.reload()
-"""
-dato1 = {"nombre":argv[1], "apellido":argv[2], "edad":argv[3]}
-datos = basemodel(**dato1)
-"""
+
