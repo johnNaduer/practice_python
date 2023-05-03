@@ -2,6 +2,15 @@
 
 import cmd
 from models.file_storage import basemodel, estorage
+from models.user import user
+from models.amenity import amenity
+from models.city import city
+from models.place import place
+from models.state import state
+from models.review import review
+
+classes = {'basemodel':basemodel, 'user':user, 'amenity':amenity, 
+           'city':city, 'place':place, 'state':state, 'review':review}
 
 class HBNBCcommand(cmd.Cmd):
     prompt = "(hbnb) "
@@ -17,6 +26,8 @@ class HBNBCcommand(cmd.Cmd):
     def do_create(self, line):
         """ create basemodel for dates"""
         args = line.split(" ")
+        print(args[0])
+        print(type(args[0]))
         x = 1
         y = 2
         datos = {}
@@ -29,8 +40,10 @@ class HBNBCcommand(cmd.Cmd):
             x = x + 2
             y = y + 2
             i = i + 1
-        instance = basemodel(**datos)
-        print(instance.id)
+        
+        if args[0] in classes:
+            instance = classes[args[0]](**datos)
+            print(instance.id)
 
     def do_all(self, line):
         """ print all elements"""
