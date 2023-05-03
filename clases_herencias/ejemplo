@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+
+class nombre:
+    def __init__(self, name):
+        self.name = name
+        dato = self.__class__.__name__
+        estorage.new(self)
+        print(dato)
+
+class filestorage:
+    __objects = {}
+    def new(self, obj):
+        dato1 = obj.name
+        key = "{}".format(obj.__class__.__name__)
+        self.__objects[key] = dato1
+        print(self.__objects)
+    
+class usuario(nombre):
+    pass
+
+estorage = filestorage()
+usuario2 = usuario("kelly")
+usuario3 = nombre("john")
+print(usuario2.__dict__)

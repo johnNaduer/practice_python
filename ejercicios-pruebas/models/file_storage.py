@@ -12,7 +12,6 @@ class basemodel:
         self.kwargs = kwargs
         estorage.new(self)
 
-
 class filestorage:
     file_path = "file3.json"
     __objects = {}
@@ -39,7 +38,7 @@ class filestorage:
 
     def delete(self, obj=None):
         if obj is not None:
-            key = obj.id
+            key = "{}.{}".format(obj.__class__.__name__, obj.id)
             if key in self.__objects:
                 del self.__objects[key]
                 self.save()
