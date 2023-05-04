@@ -14,3 +14,9 @@ class state(Base):
     """ nullable quiere decir que no debe tenr campos vacios"""
     id = Column(Integer, primary_key = True, autoincrement = True, nullable = False)
     name = Column(String(128), nullable = False)
+
+
+class new_name(Base):
+    __tablename__ = 'table_names'
+    name1 = Column(String(60), primary_key = True, nullable = False)
+    name2 = Column(String(60), nullable = False)
