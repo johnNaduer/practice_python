@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from .file_storage import basemodel
+from .base_model import basemodel
 
 class amenity(basemodel):
     """ A class representing an amenity """

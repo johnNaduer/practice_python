@@ -2,14 +2,21 @@
 
 import json
 import uuid
-from sys import argv
 from os.path import isfile
+"""
+from .db_storage import DBStorage
+
+Base = declarative_base()
 
 class basemodel:
+    __tablename__ = 'base_model'
+    id = Column(String(60), primary_key=True, nullable=False)
+
     def __init__(self, **kwargs):
         self.id = str(uuid.uuid4())
         self.kwargs = kwargs
         estorage.new(self)
+"""
 
 class filestorage:
     file_path = "file3.json"
@@ -49,5 +56,11 @@ class filestorage:
         else:
             return
 
-estorage = filestorage()
+"""
+if storage_t == 'db':
+    estorage = DBStorage() 
+else:
+    estorage = filestorage()
+
 estorage.reload()
+"""

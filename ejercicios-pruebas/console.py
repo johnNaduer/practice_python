@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
 import cmd
-from models.file_storage import basemodel, estorage
+import models
+from models.base_model import basemodel #estorage
+""" from models.db_storage import DBStorage """
+""" from models.__init__ import estorage """
 from models.user import user
 from models.amenity import amenity
 from models.city import city
@@ -45,10 +48,11 @@ class HBNBCcommand(cmd.Cmd):
             instance = classes[args[0]](**datos)
             print(instance.id)
 
+"""
     def do_all(self, line):
-        """ print all elements"""
+         print all elements
         instance = estorage.all()
         print(instance)
-
+"""
 if __name__ == '__main__':
     HBNBCcommand().cmdloop()

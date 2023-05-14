@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from .file_storage import basemodel
+from .base_model import basemodel
 
 class review(basemodel):
     """ A class representing a Review """
