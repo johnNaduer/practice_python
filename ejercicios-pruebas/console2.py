@@ -1,19 +1,12 @@
 #!/usr/bin/python3
-
 import cmd
 import models
-from models.base_model import basemodel #estorage
+from models.base_model2 import basemodel
 """ from models.db_storage import DBStorage """
-""" from models.__init__ import estorage """
-from models.user import user
-from models.amenity import amenity
-from models.city import city
-from models.place import place
-from models.state import state
-from models.review import review
 
-classes = {'basemodel':basemodel, 'user':user, 'amenity':amenity, 
-           'city':city, 'place':place, 'state':state, 'review':review}
+from models.state2 import state
+
+classes = {'basemodel':basemodel, 'state':state}
 
 class HBNBCcommand(cmd.Cmd):
     prompt = "(hbnb) "
@@ -43,16 +36,18 @@ class HBNBCcommand(cmd.Cmd):
             x = x + 2
             y = y + 2
             i = i + 1
-        
+
         if args[0] in classes:
             instance = classes[args[0]](**datos)
             print(instance.id)
 
-"""
     def do_all(self, line):
-        print all elements
-        instance = estorage.all()
+        """ print all elements """
+        args = line.split(" ")
+        instance = models.estorage.all(classes[args[0]])
         print(instance)
-"""
+        for obj in instance:
+            print("{} - {}".format(obj.id, obj.name))
+
 if __name__ == '__main__':
     HBNBCcommand().cmdloop()

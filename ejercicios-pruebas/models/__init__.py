@@ -1,7 +1,14 @@
 #!/usr/bin/python3
+
+from models.engine.db_storage2 import DBStorage 
+
+estorage = DBStorage()
+estorage.reload()
+
+
 """
 initializar models packetes
-"""
+
 
 from os import environ
 
@@ -15,3 +22,5 @@ else:
     estorage = filestorage()
 
 estorage.reload()
+
+"""

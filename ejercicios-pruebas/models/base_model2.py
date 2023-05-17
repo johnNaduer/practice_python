@@ -2,16 +2,12 @@
 
 import json
 import uuid
+import models
 from sys import argv
 from os.path import isfile
-from os import environ
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, String
-import models
 
-"""
-from .__init__ import estorage
-"""
 Base = declarative_base()
 
 class basemodel:
@@ -20,9 +16,10 @@ class basemodel:
 
     def __init__(self, **kwargs):
         self.id = str(uuid.uuid4())
-        """
         for key, value in kwargs.items():
             setattr(self, key, value)
-        """ 
+        
+        """
         self.kwargs = kwargs
+        """
         models.estorage.new(self)
