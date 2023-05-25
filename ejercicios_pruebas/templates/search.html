@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <h1>Search Data</h1>
+    <form action="/search" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+        <input type="submit" value="Search">
+    </form>
+    <hr>
+    {% if data %}
+        {% for item in data %}
+            <p>ID: {{ item.id }}</p>
+            <p>Name: {{ item.name }}</p>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
+

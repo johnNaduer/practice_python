@@ -1,0 +1,114 @@
+{
+    "d44f27d5-fd74-4026-bd8a-1893e41327f4": {
+        "john": "espino",
+        "edad": "31"
+    },
+    "89518cb5-3a43-4259-8c28-2ca8a97fd897": {
+        "mirella": "cubas",
+        "edad": "29"
+    },
+    "35739e75-7f63-4cd2-affe-8320e373d048": {
+        "yoanna": "huillca",
+        "edad": "29"
+    },
+    "5d12889b-8c1a-47d4-848c-eae26de18fcc": {},
+    "120493dd-10a3-4504-8752-3a8142956442": {
+        "erika": "infanzon",
+        "edad": "29"
+    },
+    "3608eb29-4462-432c-b68f-2e3b2ff9d1ac": {
+        "erika": "infanzon",
+        "edad": "30"
+    },
+    "5914dc64-0519-489d-a098-4600f06c19cd": {
+        "ara": "roque",
+        "edad": "25"
+    },
+    "97fa1bf9-6c06-452e-b63b-40eab9342c8f": {
+        "jhon": "naduer"
+    },
+    "basemodel.1fbc2534-ffd9-45bc-a2f7-1793f7752e6a": {
+        "jhon": "naduer"
+    },
+    "basemodel.d3d6f0a8-57af-424a-bb89-2c99a983ee92": {
+        "kelly": "quaquira",
+        "edad": "25"
+    },
+    "basemodel.db7caf5b-cfc5-48c2-a824-fbb768dd048e": {
+        "jhon": "espino"
+    },
+    "basemodel.54380e00-e6a3-4461-9f9c-0d1ff2116ab9": {
+        "mariapaula": "gamarra"
+    },
+    "basemodel.aeda4f0b-cf19-4fd7-82fe-6f73e88794d2": {
+        "erika": "infanzon"
+    },
+    "user.bcb9ce0b-cb1b-4dad-af2b-36c2a8f1c345": {
+        "erika": "infanzon"
+    },
+    "city.7ca2306c-89fb-444a-a10c-3ba7fd01cf71": {
+        "estate_id": "75",
+        "name": "holanda"
+    },
+    "basemodel.a13b9c44-c853-4087-b19c-4a183fffe539": {
+        "nombre": "erika",
+        "edad": "29"
+    },
+    "basemodel.b718142a-3c21-4848-ae90-dc1531b0ca63": {
+        "nombre": "erika",
+        "edad": "29"
+    },
+    "user.46d34fc2-5be0-471f-a760-5a42ff37d9ce": {
+        "nombre": "jhon",
+        "edad": "30"
+    },
+    "review.f602490f-4b16-40c1-80f7-ba43bc9b008b": {
+        "place_id": "123",
+        "user_id": "426",
+        "text": "hispanoamericano"
+    },
+    "basemodel.5fd5d060-9223-4f2c-9534-f6d673e06f25": {
+        "nombre": "ara",
+        "edad": "27"
+    },
+    "state.3e5ea7e1-e33b-470a-b895-c45c0f19c7b2": {
+        "nombre": "peru"
+    },
+    "state.57cca9b6-b34b-4693-b2a2-9bbb471a3e93": {
+        "name": "yurimaguas"
+    },
+    "user.981df29b-bd05-4d85-8b35-fe2f4aacc924": {
+        "nombre": "jhon",
+        "edad": "30"
+    },
+    "basemodel.16a949ab-643b-4102-a3bd-ee4cd01cf569": {
+        "nombre": "erika",
+        "edad": "30"
+    },
+    "basemodel.43a6f82a-4e74-4548-b8c9-ac3dd4a5ae04": {
+        "nombre": "jhon",
+        "edad": "31"
+    },
+    "basemodel.88ec398a-e7d1-44c0-a8c9-9ac67e516e71": {
+        "nombre": "jhon"
+    },
+    "amenity.bdc40371-ab32-4a70-acc3-bbbe8e2085c0": {
+        "name": "fragata"
+    },
+    "amenity.4ae48aea-a175-403b-aeb1-bcd0d73d6635": {
+        "name": "jhon"
+    },
+    "basemodel.7c21971b-6822-428a-b8c0-1556f9792c03": {
+        "name": "jhon"
+    },
+    "basemodel.9f04c870-41f3-4ec1-ade9-cc5575f450bd": {
+        "nombre2": "fraganet"
+    },
+    "basemodel.66655986-e3b1-47e1-a3a7-832b5eb5e739": {
+        "nombre": "jhon"
+    },
+    "basemodel.cc81fd2a-380d-416f-a174-910781a7e640": {
+        "name": "erika",
+        "infanzon": "edad"
+    }
+}

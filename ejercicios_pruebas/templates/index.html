@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estados</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+    <h1>Listado de Estados</h1>
+    <ul>
+        {% for state in states %}
+        <li class="state-item">
+        <span class="state-id">ID:</span> {{ state.id }}, 
+        <span class="state-name">Nombre:</span> {{ state.name }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

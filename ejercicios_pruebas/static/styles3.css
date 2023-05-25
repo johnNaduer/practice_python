@@ -1,0 +1,30 @@
+/* styles.css */
+
+/* Estilo para el contenedor principal */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilo para los encabezados de sección */
+h1, h2 {
+  text-align: center;
+}
+
+/* Estilo para los formularios */
+form {
+  margin-top: 20px;
+}
+
+/* Estilo para las etiquetas de los campos de entrada */
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+/* Estilo para los botones */
+button {
+  margin-top: 10px;
+}
+
