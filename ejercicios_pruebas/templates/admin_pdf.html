@@ -1,0 +1,38 @@
+<!-- ADMIN_PDF.HTML -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administradores - PDF</title>
+</head>
+<body>
+    <h1>Lista de Administradores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Número de Teléfono</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for admin in administradores %}
+            <tr>
+                <td>{{ admin.id }}</td>
+                <td>{{ admin.name_aministrador }}</td>
+                <td>{{ admin.apellidos_administrador }}</td>
+                <td>{{ admin.email_administrador }}</td>
+                <td>{{ admin.numero_telefono_administrador }}</td>
+                <td>{{ admin.usuario_administrador }}</td>
+                <td>{{ admin.contraseña_administrador }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

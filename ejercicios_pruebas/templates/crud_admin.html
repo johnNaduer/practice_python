@@ -7,6 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
+        <link rel="stylesheet" type="text/css" href="../static/styles2.css">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="../static/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -58,12 +59,10 @@
                             <div class="sb-nav-link-icon"><i class=""></i></div>
                             Propiedades
                             </a>
-
                             <a class="nav-link" href="/espacios">
                             <div class="sb-nav-link-icon"><i class=""></i></div>
                             Vivienda
                             </a>
-
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -75,15 +74,54 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                    <ul>
-                    {% for state in states %}
-                    <li class="state-item">
-                     <span class="state-id">ID:</span> {{ state.id }},
-                    <span class="state-name">Nombre:</span> {{ state.name }}
-                    </li>
-                    {% endfor %}
-                    </ul>
+                        <h1 class="mt-4">Administradores</h1>
+
+
+
+
+    <div class="container">
+
+        <h4 class="mt-4">Buscar Administrador</h4>
+        <form method="POST" action="/crud_admin">
+            <input type="hidden" name="action" value="search">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" name="id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        <h4 class="mt-4">Actualizar Administrador</h4>
+        <form method="POST" action="/crud_admin">
+            <input type="hidden" name="action" value="update">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="new_name">Nuevo Nombre:</label>
+                <input type="text" class="form-control" id="new_name" name="new_name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+
+        <h4 class="mt-4">Eliminar Administrador</h4>
+        <form method="POST" action="/crud_admin">
+            <input type="hidden" name="action" value="delete">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" name="id" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+    </div>
+    <h4>Generar PDF de Administradores</h4>
+    <form method="POST" action="/crud_admin/generate_pdf">
+        <button type="submit">Generar PDF</button>
+    </form>
+
+
+
 
                     </div>
 

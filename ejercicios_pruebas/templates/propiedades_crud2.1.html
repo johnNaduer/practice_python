@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD de Propiedades</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles4.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <header>
+        <nav>
+          <li><a href="/">Ir a todos los usuarios</a></li>
+          <li><a href="/crud">Inquilinos</a></li>
+          <li><a href="/crud_admin">Administradores</a></li>
+          <li><a href="/propiedades">Propiedades</a></li>
+        </nav>
+  </header>
+    <div class="container">
+        <h1>CRUD de Propiedades</h1>
+
+        <h2>Búsqueda de Propiedad</h2>
+        <form method="POST" action="/propiedades">
+            <input type="hidden" name="action" value="search">
+            <div class="form-group">
+                <label for="id">ID de la Propiedad:</label>
+                <input type="number" name="id" id="id" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        {% if resultados %}
+            <h2>Resultados de Búsqueda:</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Número de Teléfono</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for propiedad in resultados %}
+                        <tr>
+                            <td>{{ propiedad.id }}</td>
+                            <td>{{ propiedad.nombre }}</td>
+                            <td>{{ propiedad.direccion }}</td>
+                            <td>{{ propiedad.numero_telefono }}</td>
+                            <td>{{ propiedad.descripcion }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+<h2>Actualizar Propiedad</h2>
+<form method="POST" action="/propiedades">
+    <input type="hidden" name="action" value="update">
+    <div class="form-group">
+        <label for="update_id">ID de la Propiedad:</label>
+        <input type="text" name="id" id="update_id" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="new_nombre">Nuevo Nombre:</label>
+        <input type="text" name="new_nombre" id="new_nombre" required class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+
+<h2>Eliminar Propiedad</h2>
+<form method="POST" action="/propiedades">
+    <input type="hidden" name="action" value="delete">
+    <div class="form-group">
+        <label for="delete_id">ID de la Propiedad:</label>
+        <input type="text" name="id" id="delete_id" required class="form-control">
+    </div>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+</form>
+
+<h2>Agregar Propiedad</h2>
+<form method="POST" action="/propiedades">
+    <input type="hidden" name="action" value="add">
+    <div class="form-group">
+        <label for="id">ID de la Propiedad:</label>
+        <input type="number" name="id" id="id" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="id_administrador">ID del Administrador:</label>
+        <input type="number" name="id_administrador" id="id_administrador" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" name="direccion" id="direccion" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="numero_telefono">Número de Teléfono:</label>
+        <input type="text" name="numero_telefono" id="numero_telefono" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" id="descripcion" required class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+</body>
+</html>
+

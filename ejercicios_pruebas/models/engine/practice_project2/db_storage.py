@@ -14,7 +14,7 @@ class DBStorage:
         user = "johnnaduer" #getenv('HBNB_MYSQL_USER')
         password = "polares123" #getenv('HBNB_MYSQL_PWD')
         host = "localhost" #getenv('HBNB_MYSQL_HOST')
-        database = "jh_db"#getenv('HBNB_MYSQL_DB')
+        database = "jh_db_2"#getenv('HBNB_MYSQL_DB')
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(user, password, host, database), 
                                       pool_pre_ping=True)
 
@@ -47,8 +47,9 @@ class DBStorage:
 
 estorage = DBStorage()
 estorage.reload()
+
 """
-datos = {"id":116,"name":"huay", "diponibilidad":"disponible"}
+datos = {"id":118,"name":"peru", "diponibilidad":"disponible"}
 datos2 = place3(**datos)
 estorage.new(datos2)
 estorage.save()
@@ -58,8 +59,10 @@ obj = dato1.all(place)[1]
 dato1.delete(obj)
 dato1.save()
 
+
 all_data = estorage.all(place3)
 print(all_data)
+
 
 for objetos in all_data:
     if objetos.id == 115:
@@ -74,8 +77,8 @@ for ob4 in all_data:
     print("{}".format(ob4.__dict__))
 
 
-"""
-"""
+
+
 all_data = dato1.all() 
  print(all_data) 
 
@@ -83,6 +86,5 @@ for obj in all_data:
     print(obj)
 for obj2 in all_data:
     print(obj2.__dict__)
+
 """
-
-

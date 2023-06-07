@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../static/styles5.css">
+<title>Espacios</title>
+</head>
+<body>
+<h2>Espacios</h2>
+<form method="POST" action="/espacios">
+<label for="propiedad_id">Seleccione una propiedad:</label>
+<select name="propiedad_nombre">
+<option value="">Seleccionar propiedad</option>
+{% for propiedad in propiedades %}
+<option value="{{ propiedad.nombre }}" {% if propiedad2 and propiedad.nombre == propiedad2.nombre %}selected{% endif %}>{{ propiedad.nombre }}</option>
+{% endfor %}
+</select>
+
+<button type="submit" name="action" value="select_property">Seleccionar</button>
+</form>
+
+
+{% if propiedad2 %}
+<h3>Espacios de la propiedad seleccionada:</h3>
+<table>
+<tr>
+<th>ID de Espacio</th>
+<th>Número de Espacio</th>
+<th>Disponibilidad</th>
+</tr>
+{% for espacio in espacios %}
+<tr>
+<td>{{ espacio.id }}</td>
+<td>{{ espacio.numero }}</td>
+<td>{{ espacio.disponibilidad }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+
+{% if propiedad2 %}
+<h3>Espacios de la propiedad seleccionada:</h3>
+<div id="espacios-container">
+{% for espacio in espacios %}
+<div class="card" data-value="{{ espacio.disponibilidad }}">{{ espacio.numero }}</div>
+{% endfor %}
+</div>
+{% endif %}
+
+<script src="../static/script3.js"></script>
+
+</body>
+</html>

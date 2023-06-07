@@ -8,6 +8,7 @@
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+            <link rel="stylesheet" type="text/css" href="../static/styles4.css">
         <link href="../static/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -59,10 +60,11 @@
                             Propiedades
                             </a>
 
-                            <a class="nav-link" href="/espacios">
+                           <a class="nav-link" href="/espacios">
                             <div class="sb-nav-link-icon"><i class=""></i></div>
                             Vivienda
-                            </a>
+                            </a> 
+
 
                         </div>
                     </div>
@@ -75,15 +77,106 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                    <ul>
-                    {% for state in states %}
-                    <li class="state-item">
-                     <span class="state-id">ID:</span> {{ state.id }},
-                    <span class="state-name">Nombre:</span> {{ state.name }}
-                    </li>
+                        <h1 class="mt-4">Propiedades</h1>
+                    
+
+                        
+                      <div class="container">
+
+        <h4>Búsqueda de Propiedad</h4>
+        <form method="POST" action="/propiedades">
+            <input type="hidden" name="action" value="search">
+            <div class="form-group">
+                <label for="id">ID de la Propiedad:</label>
+                <input type="number" name="id" id="id" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        {% if resultados %}
+            <h4>Resultados de Búsqueda:</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Número de Teléfono</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for propiedad in resultados %}
+                        <tr>
+                            <td>{{ propiedad.id }}</td>
+                            <td>{{ propiedad.nombre }}</td>
+                            <td>{{ propiedad.direccion }}</td>
+                            <td>{{ propiedad.numero_telefono }}</td>
+                            <td>{{ propiedad.descripcion }}</td>
+                        </tr>
                     {% endfor %}
-                    </ul>
+                </tbody>
+            </table>
+
+        {% else %}
+        <h6> no se encontro algun dato con ese id</h6>
+        {% endif %}
+
+<h4>Actualizar Propiedad</h4>
+<form method="POST" action="/propiedades">
+    <input type="hidden" name="action" value="update">
+    <div class="form-group">
+        <label for="update_id">ID de la Propiedad:</label>
+        <input type="text" name="id" id="update_id" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="new_nombre">Nuevo Nombre:</label>
+        <input type="text" name="new_nombre" id="new_nombre" required class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+
+<h4>Eliminar Propiedad</h4>
+<form method="POST" action="/propiedades">
+    <input type="hidden" name="action" value="delete">
+    <div class="form-group">
+        <label for="delete_id">ID de la Propiedad:</label>
+        <input type="text" name="id" id="delete_id" required class="form-control">
+    </div>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+</form>
+
+<h4>Agregar Propiedad</h4>
+<form method="POST" action="/propiedades">
+    <input type="hidden" name="action" value="add">
+    <div class="form-group">
+        <label for="id">ID de la Propiedad:</label>
+        <input type="number" name="id" id="id" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="id_administrador">ID del Administrador:</label>
+        <input type="number" name="id_administrador" id="id_administrador" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" name="direccion" id="direccion" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="numero_telefono">Número de Teléfono:</label>
+        <input type="text" name="numero_telefono" id="numero_telefono" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" id="descripcion" required class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+
+
 
                     </div>
 

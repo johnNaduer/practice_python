@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Administrador</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <ul>
+              <li><a href="/">Ir a todos los usuarios</a></li>
+              <li><a href="/crud">Inquilinos</a></li>
+              <li><a href="/crud_admin">Administradores</a></li>
+              <li><a href="/propiedades">Propiedades</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="mt-5">CRUD Administrador</h1>
+
+        <h2 class="mt-4">Buscar Administrador</h2>
+        <form method="POST" action="/crud_admin">
+            <input type="hidden" name="action" value="search">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" name="id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        <h2 class="mt-4">Actualizar Administrador</h2>
+        <form method="POST" action="/crud_admin">
+            <input type="hidden" name="action" value="update">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="new_name">Nuevo Nombre:</label>
+                <input type="text" class="form-control" id="new_name" name="new_name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+
+        <h2 class="mt-4">Eliminar Administrador</h2>
+        <form method="POST" action="/crud_admin">
+            <input type="hidden" name="action" value="delete">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" name="id" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+    </div>
+    <h2>Generar PDF de Administradores</h2>
+    <form method="POST" action="/crud_admin/generate_pdf">
+        <button type="submit">Generar PDF</button>
+    </form>
+</body>
+</html>
+

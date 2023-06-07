@@ -1,0 +1,43 @@
+#espacios-container
+{
+width: 500px;
+height: 300px;
+/*
+display: flex;
+*/
+flex-wrap: wrap;
+background-color: lightgray;
+justify-content: center;
+align-items: center;
+}
+
+.card 
+{
+width: 50px;
+height: 50px;
+background-color: red;
+text-align: center;
+margin: 10px;
+}
+
+
+/*
+
+.card {
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card[data-value="disponible"] {
+  background-color: green;
+}
+
+.card[data-value="no disponible"] {
+  background-color: red;
+}
+
+*/

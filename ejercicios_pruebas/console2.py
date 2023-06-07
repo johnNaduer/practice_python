@@ -5,8 +5,12 @@ from models.base_model2 import basemodel
 """ from models.db_storage import DBStorage """
 
 from models.state2 import state
+from models.administrador2 import administrador
+from models.propiedad2 import propiedad
+from models.espacio2 import espacio
 
-classes = {'basemodel':basemodel, 'state':state}
+classes = {'basemodel':basemodel, 'state':state, 'administrador':administrador, 
+           'propiedad':propiedad, 'espacio':espacio}
 
 class HBNBCcommand(cmd.Cmd):
     prompt = "(hbnb) "

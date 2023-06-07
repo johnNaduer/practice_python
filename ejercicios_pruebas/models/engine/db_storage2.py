@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 
-from models.state2 import state, Base
+from models.base_model2 import basemodel, Base
+from models.state2 import state
+from models.administrador2 import administrador
+from models.propiedad2 import propiedad
+from models.espacio2 import espacio
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
-
 
 class DBStorage:
     __engine = None
@@ -17,6 +20,13 @@ class DBStorage:
     def __init__(self):
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(self.user, self.password, self.host, self.database),
                                       pool_pre_ping=True)
+
+    def get_espacios_by_propiedad_id(self, propiedad_id):
+        return self.__session.query(espacio).filter(espacio.id_propiedad == propiedad_id).all()
+
+    def get_propiedad_by_nombre(self, nombre):
+        """Buscar una propiedad por su nombre"""
+        return self.__session.query(propiedad).filter_by(nombre=nombre).first()
 
     def all(self,cls=None):
         """ consultar todos los datos de la tabla """
@@ -31,10 +41,12 @@ class DBStorage:
         return self.__session.query(cls).get(id)
 
     def new(self, obj):
+        """ add new object in the table """
         self.__session.add(obj)
         self.save()
 
     def save(self):
+        """ save session """
         self.__session.commit()
 
     def reload(self):
